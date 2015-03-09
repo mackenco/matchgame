@@ -1,0 +1,19 @@
+.drop-group, .drag-group {
+  list-style: none;
+  width: 550px;
+}
+
+.drop-group li {
+  width: 150px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+  float: left;
+}
+
+.drag-group li {
+  width: 150px;
+  height: 70px;
+  padding: 10px;
+  float: left;
+}
