@@ -2,29 +2,31 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" language="javascript" src="onthemenu.json"></script>
     <script src="script.js"></script>
   </head>
   <body>
 
-    <p>Drag the W3Schools image into the rectangle:</p>
+    <button id="reset" onclick="reset()" disabled>Reset</button>
+    <br>
 
-    <ul class="drop-group">
-      <li id="li1" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-      <li id="li2" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-      <li id="li3" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-      <li id="li4" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-      <li id="li5" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-      <li id="li6" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+    <ul class="group" id="recipe-photos">
+      <li id="drop0" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+      <li id="drop1" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+      <li id="drop2" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+      <li id="drop3" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+      <li id="drop4" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+      <li id="drop5" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
     </ul>
     <br>
 
-    <ul class="drag-group">
-      <li><img id="drag1" src="img.png" draggable="true" ondragstart="drag(event)" width="149" height="69"></li>
-      <li><img id="drag2" src="img.png" draggable="true" ondragstart="drag(event)" width="149" height="69"></li>
-      <li><img id="drag3" src="img.png" draggable="true" ondragstart="drag(event)" width="149" height="69"></li>
-      <li><img id="drag4" src="img.png" draggable="true" ondragstart="drag(event)" width="149" height="69"></li>
-      <li><img id="drag5" src="img.png" draggable="true" ondragstart="drag(event)" width="149" height="69"></li>
-      <li><img id="drag6" src="img.png" draggable="true" ondragstart="drag(event)" width="149" height="69"></li>
+    <ul class="group" id="recipe-names">
+      <li><div id="drag0" draggable="true" ondragstart="drag(event)" width="149" height="69"></div></li>
+      <li><div id="drag1" draggable="true" ondragstart="drag(event)" width="149" height="69"></div></li>
+      <li><div id="drag2" draggable="true" ondragstart="drag(event)" width="149" height="69"></div></li>
+      <li><div id="drag3" draggable="true" ondragstart="drag(event)" width="149" height="69"></div></li>
+      <li><div id="drag4" draggable="true" ondragstart="drag(event)" width="149" height="69"></div></li>
+      <li><div id="drag5" draggable="true" ondragstart="drag(event)" width="149" height="69"></div></li>
     </ul>
 
   </body>

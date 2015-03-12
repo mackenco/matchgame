@@ -1,19 +1,35 @@
-.drop-group, .drag-group {
+.group {
   list-style: none;
-  width: 550px;
+  width: 900px;
 }
 
-.drop-group li {
-  width: 150px;
-  height: 70px;
+.group li {
+  position: relative;
+}
+
+#recipe-photos li {
+  width: 250px;
+  height: 140px;
   padding: 10px;
   border: 1px solid #aaaaaa;
   float: left;
 }
 
-.drag-group li {
-  width: 150px;
-  height: 70px;
+#recipe-photos li img {
+  width: 250px;
+  height: 140px; 
+}
+
+#recipe-names li div{
+  width: 230px;
+  height: 50px;
   padding: 10px;
   float: left;
+  text-align: center;
+}
+
+.placed {
+  top: 30%;
+  background-color: blue;
+  padding: 10px;
 }
