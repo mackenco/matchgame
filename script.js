@@ -16,9 +16,15 @@ function clear(id) {
 
   for (var i = 0; i < els.length; i++) {
     var el = els[i];
-    var child = el.firstChild;
+    var children = el.children;
 
-    child.nodeName === "IMG" ? el.removeChild(child) : child.innerHTML = "";
+//this doesnt work
+    for (var j = 0; j < children.length; j++) {
+      var child = children[j];
+      child.nodeName === "IMG" ? el.removeChild(child) : child.innerHTML = "";
+      child.className = "";
+    }
+
   }
 }
 
@@ -85,17 +91,38 @@ function drop(ev) {
   var dragData = JSON.parse(ev.dataTransfer.getData("text/plain"));
   var dragBaid = dragData.baid;
   var dropBaid = ev.target.dataset.baid;
-  if (dragBaid === dropBaid) {
-    console.log("its a match"); 
-  } else {
-    return false;
-  }
+
+//   if (dragBaid === dropBaid) {
+//     console.log("its a match"); 
+//   } else {
+//     return false;
+//   }
   ev.preventDefault();
 
   //return false to indicate this is the wrong one
   var el = document.getElementById(dragData.id);
   el.style.position = "absolute";
   el.setAttribute("class", "placed");
-  console.log(el);
+  // console.log(el);
   ev.target.parentNode.appendChild(document.getElementById(dragData.id));
+
+  placed++;
+  if (placed === 6) {
+    evaluateBoard();
+  }
+}
+
+function evaluateBoard() {
+  var ul = document.getElementById("recipe-photos");
+
+  for (var i = 0; i < ul.children.length; i++) {
+    var li = ul.children[i];
+    var img = li.children[0];
+    var div = li.children[1];
+    if (img.dataset.baid === div.dataset.baid) {
+      div.setAttribute("class", "right");
+    } else {
+      div.setAttribute("class", "wrong");
+    }
+  }
 }

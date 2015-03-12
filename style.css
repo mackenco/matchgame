@@ -28,8 +28,21 @@
   text-align: center;
 }
 
+.right {
+  background-color: green;
+  top: 30%;
+  padding: 10px;
+}
+
+.wrong {
+  background-color: red;
+  top: 30%;
+  padding: 10px;
+}
+
 .placed {
   top: 30%;
   background-color: blue;
   padding: 10px;
 }
+
