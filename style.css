@@ -1,6 +1,7 @@
 .group {
   list-style: none;
   width: 900px;
+  float: left;
 }
 
 .group li {
@@ -8,41 +9,46 @@
 }
 
 #recipe-photos li {
-  width: 250px;
-  height: 140px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
+  width: 272px;
+  height: 162px;
   float: left;
 }
 
 #recipe-photos li img {
   width: 250px;
   height: 140px; 
+  padding: 10px;
+  border: 1px solid #aaaaaa;
 }
 
-#recipe-names li div{
-  width: 230px;
-  height: 50px;
-  padding: 10px;
-  float: left;
+#recipe-photos li div {
   text-align: center;
 }
 
-.right {
-  background-color: green;
-  top: 30%;
+#recipe-names li {
+  width: 250px;
+  height: 50px;
   padding: 10px;
+  border: 1px solid black;
+  float: left;
 }
 
-.wrong {
-  background-color: red;
-  top: 30%;
-  padding: 10px;
+#recipe-names li div{
+  text-align: center;
 }
 
 .placed {
   top: 30%;
   background-color: blue;
   padding: 10px;
+  margin: 11px;
+  position: absolute;
 }
 
+.right {
+  background-color: green;
+}
+
+.wrong {
+  background-color: red;
+}

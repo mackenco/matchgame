@@ -1,4 +1,5 @@
 var placed = 0;
+var answers = {};
 
 window.onload = function() {
   setupBoard();
@@ -24,7 +25,6 @@ function clear(id) {
       child.nodeName === "IMG" ? el.removeChild(child) : child.innerHTML = "";
       child.className = "";
     }
-
   }
 }
 
@@ -47,7 +47,8 @@ function populatePhotos(recipes) {
   for (var i = 0; i < shuffledRecipes.length; i++) {
     var recipe = shuffledRecipes[i].recipe;
     var img = imgCreate("https:" + recipe.square_hi_res_image_url);
-    img.setAttribute("data-baid", recipe.id);
+    answers[i] = recipe.id;
+    img.setAttribute("data-key", i);
     document.getElementById("drop" + i).appendChild(img);
   }
 }
@@ -59,7 +60,8 @@ function populateText(recipes) {
     var recipe = shuffledRecipes[i].recipe;
     var text = document.createTextNode(recipe.title);
     var li = document.getElementById("drag" + i);
-    li.setAttribute("data-baid", recipe.id);
+    answers[i + 6] = recipe.id;
+    li.setAttribute("data-key", i + 6);
     li.appendChild(text);
   }
 }
@@ -75,13 +77,19 @@ function shuffle(arr) {
 }
 
 function allowDrop(ev) {
+  if (isOccupied(ev)) { return false;}
   ev.preventDefault();
+}
+
+function isOccupied(ev) {
+  return ev.target.nodeName === "DIV" || 
+    ev.target.parentNode.lastChild.nodeName === "DIV" ;  
 }
 
 function drag(ev) {
   var data = {
     id: ev.target.id,
-    baid: ev.target.dataset.baid
+    key: ev.target.dataset.key
   }
 
   ev.dataTransfer.setData("text/plain", JSON.stringify(data));
@@ -89,27 +97,26 @@ function drag(ev) {
 
 function drop(ev) {
   var dragData = JSON.parse(ev.dataTransfer.getData("text/plain"));
-  var dragBaid = dragData.baid;
-  var dropBaid = ev.target.dataset.baid;
+  var el = document.getElementById(dragData.id);
 
-//   if (dragBaid === dropBaid) {
-//     console.log("its a match"); 
-//   } else {
-//     return false;
-//   }
   ev.preventDefault();
 
-  //return false to indicate this is the wrong one
-  var el = document.getElementById(dragData.id);
-  el.style.position = "absolute";
   el.setAttribute("class", "placed");
-  // console.log(el);
-  ev.target.parentNode.appendChild(document.getElementById(dragData.id));
+  ev.target.parentNode.appendChild(el);
 
   placed++;
   if (placed === 6) {
     evaluateBoard();
   }
+}
+
+function reset(ev) {
+  var dragData = JSON.parse(ev.dataTransfer.getData("text/plain"));
+  var el = document.getElementById(dragData.id);
+  ev.preventDefault();
+  el.className = "";
+  ev.target.appendChild(el);
+  placed--;
 }
 
 function evaluateBoard() {
@@ -119,10 +126,11 @@ function evaluateBoard() {
     var li = ul.children[i];
     var img = li.children[0];
     var div = li.children[1];
-    if (img.dataset.baid === div.dataset.baid) {
-      div.setAttribute("class", "right");
+
+    if (answers[img.dataset.key] === answers[div.dataset.key]) {
+      div.setAttribute("class", "right placed");
     } else {
-      div.setAttribute("class", "wrong");
+      div.setAttribute("class", "wrong placed");
     }
   }
 }

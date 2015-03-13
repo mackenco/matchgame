@@ -21,12 +21,24 @@
     <br>
 
     <ul class="group" id="recipe-names">
-      <li><div id="drag0" draggable="true" ondragstart="drag(event)" width="149" height="69"></div></li>
-      <li><div id="drag1" draggable="true" ondragstart="drag(event)" width="149" height="69"></div></li>
-      <li><div id="drag2" draggable="true" ondragstart="drag(event)" width="149" height="69"></div></li>
-      <li><div id="drag3" draggable="true" ondragstart="drag(event)" width="149" height="69"></div></li>
-      <li><div id="drag4" draggable="true" ondragstart="drag(event)" width="149" height="69"></div></li>
-      <li><div id="drag5" draggable="true" ondragstart="drag(event)" width="149" height="69"></div></li>
+      <li ondrop="reset(event)" ondragover="allowDrop(event)">
+        <div id="drag0" draggable="true" ondragstart="drag(event)"></div>
+      </li>
+      <li ondrop="reset(event)" ondragover="allowDrop(event)">
+        <div id="drag1" draggable="true" ondragstart="drag(event)"></div>
+      </li>
+      <li ondrop="reset(event)" ondragover="allowDrop(event)">
+        <div id="drag2" draggable="true" ondragstart="drag(event)"></div>
+      </li>
+      <li ondrop="reset(event)" ondragover="allowDrop(event)">
+        <div id="drag3" draggable="true" ondragstart="drag(event)"></div>
+      </li>
+      <li ondrop="reset(event)" ondragover="allowDrop(event)">
+        <div id="drag4" draggable="true" ondragstart="drag(event)"></div>
+      </li>
+      <li ondrop="reset(event)" ondragover="allowDrop(event)">
+        <div id="drag5" draggable="true" ondragstart="drag(event)"></div>
+      </li>
     </ul>
 
   </body>
