@@ -1,6 +1,77 @@
-.group {
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif
+}
+
+div {
+  font-size: 12px;
+}
+
+div span {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+}
+
+ul {
   list-style: none;
-  width: 900px;
+  padding: 0;
+}
+
+/* timer and leaderboard */ 
+
+aside {
+  float: left;
+  width: 180px;
+  height: 680px;
+  margin: 20px 5px;
+  padding: 10px;
+  background-color: #BBDEFB;
+}
+
+h1 {
+  background-color: #3949AB;
+  color: #BBDEFB;
+  text-align: center;
+  font-size: 36px;
+  font-family: "Courier New", Courier, monospace;
+  margin: 5px -15px;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  margin: 0px 0;
+}
+
+h3 {
+  margin: 0;
+  font-size: 12px;
+}
+
+h4 {
+  font-size: 10px;
+  margin: 0;
+}
+
+#leaderboard {
+  margin: 5px 0;
+  border-left: 2px solid #3949AB;
+  padding-left: 8px;
+}
+
+#leaderboard div {
+  font-size: 18px;
+}
+
+/* groups of six */
+
+main {
+  float: left;
+  width: 1000px;
+}
+
+.group {
   float: left;
 }
 
@@ -8,47 +79,63 @@
   position: relative;
 }
 
+/* recipe photos */
+
 #recipe-photos li {
-  width: 272px;
-  height: 162px;
+  margin: 5px;
+  width: 252px;
+  height: 252px;
   float: left;
 }
 
 #recipe-photos li img {
   width: 250px;
-  height: 140px; 
-  padding: 10px;
-  border: 1px solid #aaaaaa;
+  height: 250px; 
 }
 
-#recipe-photos li div {
-  text-align: center;
+/* recipe names */
+
+#recipe-names {
+  margin: 0;
 }
 
 #recipe-names li {
-  width: 250px;
-  height: 50px;
-  padding: 10px;
-  border: 1px solid black;
+  width: 252px;
+  height: 75px;
+  margin: 5px;
+  background-color: #aaa;
   float: left;
 }
 
 #recipe-names li div{
-  text-align: center;
+  color: #333466;
+  background-color: #e6e6e6;
+  width: 242px;
+  height: 65px;
+  padding: 5px;
 }
 
+/* names after placement */
+
 .placed {
-  top: 30%;
-  background-color: blue;
-  padding: 10px;
-  margin: 11px;
+  /* switching to rgb here to make just the background color opaque */
+  background-color: rgba(230, 230, 230, .95);
+  color: #333466;
+  top: 10%;
+  padding: 4px 15px;
+  margin: 0 -3px;
   position: absolute;
+  width: 225px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #888;
 }
 
 .right {
-  background-color: green;
+  color: #1B5E20;
+  background-color: #A5D6A7;
 }
 
 .wrong {
-  background-color: red;
+  color: #b71c1c;
+  background-color: #ef9a9a;
 }

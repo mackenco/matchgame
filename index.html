@@ -5,41 +5,42 @@
     <script type="text/javascript" language="javascript" src="onthemenu.json"></script>
     <script src="script.js"></script>
   </head>
+
   <body>
 
-    <button id="reset" onclick="reset()" disabled>Reset</button>
-    <br>
+    <aside>
+      <h1 id="timer">2:00</h1>
+      <h2>Leader Board</h2>
+      <h3>Top Five Scores</h3>
+      <h4>(Number correct - Time elapsed)</h4>
+      <ul id="leaderboard">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      </aside>
 
-    <ul class="group" id="recipe-photos">
-      <li id="drop0" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-      <li id="drop1" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-      <li id="drop2" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-      <li id="drop3" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-      <li id="drop4" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-      <li id="drop5" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-    </ul>
-    <br>
+    <main>
+      <ul class="group" id="recipe-photos">
+        <li id="drop0" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        <li id="drop1" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        <li id="drop2" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        <li id="drop3" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        <li id="drop4" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        <li id="drop5" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+      </ul>
 
-    <ul class="group" id="recipe-names">
-      <li ondrop="reset(event)" ondragover="allowDrop(event)">
-        <div id="drag0" draggable="true" ondragstart="drag(event)"></div>
-      </li>
-      <li ondrop="reset(event)" ondragover="allowDrop(event)">
-        <div id="drag1" draggable="true" ondragstart="drag(event)"></div>
-      </li>
-      <li ondrop="reset(event)" ondragover="allowDrop(event)">
-        <div id="drag2" draggable="true" ondragstart="drag(event)"></div>
-      </li>
-      <li ondrop="reset(event)" ondragover="allowDrop(event)">
-        <div id="drag3" draggable="true" ondragstart="drag(event)"></div>
-      </li>
-      <li ondrop="reset(event)" ondragover="allowDrop(event)">
-        <div id="drag4" draggable="true" ondragstart="drag(event)"></div>
-      </li>
-      <li ondrop="reset(event)" ondragover="allowDrop(event)">
-        <div id="drag5" draggable="true" ondragstart="drag(event)"></div>
-      </li>
-    </ul>
+      <ul class="group" id="recipe-names">
+        <li ondrop="returnHome(event)" ondragover="allowDrop(event)"></li>
+        <li ondrop="returnHome(event)" ondragover="allowDrop(event)"></li>
+        <li ondrop="returnHome(event)" ondragover="allowDrop(event)"></li>
+        <li ondrop="returnHome(event)" ondragover="allowDrop(event)"></li>
+        <li ondrop="returnHome(event)" ondragover="allowDrop(event)"></li>
+        <li ondrop="returnHome(event)" ondragover="allowDrop(event)"></li>
+      </ul>
+    </main>
 
   </body>
 </html>
