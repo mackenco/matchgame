@@ -3,7 +3,11 @@
   <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" language="javascript" src="onthemenu.json"></script>
-    <script src="script.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/drag.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/timer.js"></script>
   </head>
 
   <body>
@@ -24,21 +28,21 @@
 
     <main>
       <ul class="group" id="recipe-photos">
-        <li id="drop0" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        <li id="drop1" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        <li id="drop2" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        <li id="drop3" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        <li id="drop4" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        <li id="drop5" ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        <li id="drop0" ondrop="Drag.drop(event)" ondragover="Drag.allowDrop(event)"></li>
+        <li id="drop1" ondrop="Drag.drop(event)" ondragover="Drag.allowDrop(event)"></li>
+        <li id="drop2" ondrop="Drag.drop(event)" ondragover="Drag.allowDrop(event)"></li>
+        <li id="drop3" ondrop="Drag.drop(event)" ondragover="Drag.allowDrop(event)"></li>
+        <li id="drop4" ondrop="Drag.drop(event)" ondragover="Drag.allowDrop(event)"></li>
+        <li id="drop5" ondrop="Drag.drop(event)" ondragover="Drag.allowDrop(event)"></li>
       </ul>
 
       <ul class="group" id="recipe-names">
-        <li ondrop="returnHome(event)" ondragover="allowDrop(event)"></li>
-        <li ondrop="returnHome(event)" ondragover="allowDrop(event)"></li>
-        <li ondrop="returnHome(event)" ondragover="allowDrop(event)"></li>
-        <li ondrop="returnHome(event)" ondragover="allowDrop(event)"></li>
-        <li ondrop="returnHome(event)" ondragover="allowDrop(event)"></li>
-        <li ondrop="returnHome(event)" ondragover="allowDrop(event)"></li>
+        <li ondrop="Drag.returnHome(event)" ondragover="Drag.allowDrop(event)"></li>
+        <li ondrop="Drag.returnHome(event)" ondragover="Drag.allowDrop(event)"></li>
+        <li ondrop="Drag.returnHome(event)" ondragover="Drag.allowDrop(event)"></li>
+        <li ondrop="Drag.returnHome(event)" ondragover="Drag.allowDrop(event)"></li>
+        <li ondrop="Drag.returnHome(event)" ondragover="Drag.allowDrop(event)"></li>
+        <li ondrop="Drag.returnHome(event)" ondragover="Drag.allowDrop(event)"></li>
       </ul>
     </main>
 
