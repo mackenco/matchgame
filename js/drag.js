@@ -2,7 +2,8 @@ var Drag = (function() {
 
   var allowDrop = function(ev) {
     if (_isOccupied(ev)) { return false; }
-    if (gameOver) { return false; }
+    if (Game.over) { return false; }
+
     ev.preventDefault();
   }
 
@@ -16,7 +17,7 @@ var Drag = (function() {
   var drag = function(ev) {
     var data = {
       id: ev.target.id,
-      key: ev.target.dataset.key
+      fromIMG: ev.target.parentNode.firstChild.nodeName === "IMG"
     }
 
     ev.dataTransfer.setData("text/plain", JSON.stringify(data));
@@ -31,10 +32,9 @@ var Drag = (function() {
     el.setAttribute("class", "placed");
     ev.target.parentNode.appendChild(el);
 
-    placed++;
-    if (placed === 6) {
-      Board.evaluate();
-    }
+    if (!dragData.fromIMG) { Game.placed++; }
+
+    if (Game.placed === 6) { Board.evaluate(); }
   }
 
   var returnHome = function(ev) {
@@ -43,7 +43,7 @@ var Drag = (function() {
     ev.preventDefault();
     el.className = "";
     ev.target.appendChild(el);
-    placed--;
+    Game.placed--;
   }
 
    return {

@@ -2,12 +2,20 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" language="javascript" src="onthemenu.json"></script>
+    
+    <script src="onthemenu.json"></script>
     <script src="js/game.js"></script>
     <script src="js/drag.js"></script>
     <script src="js/board.js"></script>
     <script src="js/helpers.js"></script>
     <script src="js/timer.js"></script>
+
+    <script>
+      window.onload = function() {
+        Board.create(); 
+      }
+    </script>
+
   </head>
 
   <body>

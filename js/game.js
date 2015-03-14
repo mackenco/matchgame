@@ -1,7 +1,3 @@
-window.onload = function() {
-  Board.create();
-};
-
 var Game = (function() {
   var leaderBoard = localStorage["leaderBoard"] || "[]";
 
@@ -17,7 +13,7 @@ var Game = (function() {
       5: "highly Instagrammed Brooklyn culinary artist",
       6: "3-star Michelin chef"
     },
-    gameOver: false,
+    over: false,
     leaderBoard: JSON.parse(leaderBoard),
     timerInterval: null
   };

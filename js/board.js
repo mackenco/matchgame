@@ -5,7 +5,7 @@ var Board = (function() {
     _populatePhotos(menuJSON.recipes);
     _populateText(menuJSON.recipes);
     _populateLeaderBoard();
-    gameOver = false;
+    Game.over = false;
     document.getElementById("timer").textContent = "2:00";
     Timer.startTimer();
   }
@@ -16,7 +16,7 @@ var Board = (function() {
     Helpers.clear("recipe-photos");
     Helpers.clear("recipe-names");
     Helpers.clear("leaderboard");
-    setUpBoard();
+    create();
   }
 
   var _populatePhotos = function(recipes) {
@@ -75,15 +75,15 @@ var Board = (function() {
   var evaluate = function() {
     var ul = document.getElementById("recipe-photos");
     var correct = 0;
-    gameOver = true;
-    clearInterval(timerInterval);
+    Game.over = true;
+    clearInterval(Game.timerInterval);
 
     for (var i = 0; i < ul.children.length; i++) {
       var li = ul.children[i];
       var img = li.children[0];
       var div = li.children[1];
 
-      if (answers[img.dataset.key] === answers[div.dataset.key]) {
+      if (Game.answers[img.dataset.key] === Game.answers[div.dataset.key]) {
         div.setAttribute("class", "right placed");
         correct++;
       } else {
@@ -92,18 +92,19 @@ var Board = (function() {
     }
 
     var timeText = document.getElementById("timer").textContent;
-    var elapsed = calcTime(timeText);
+    var elapsed = Timer.calcTime(timeText);
 
     var score = {
       correct: correct,
       elapsed: elapsed 
     };
 
-    leaderBoard.push(score);
-    localStorage["leaderBoard"] = JSON.stringify(Helpers.leaderSort(leaderBoard));
+    Game.leaderBoard.push(score);
+    localStorage["leaderBoard"] = 
+      JSON.stringify(Helpers.leaderSort(Game.leaderBoard));
 
     var confText = "You got " + correct + " right. That puts you on par with a " +
-      evalText[correct] + "! Play again?";
+      Game.evalText[correct] + "! Play again?";
     
     if(confirm(confText)) {
       reset();

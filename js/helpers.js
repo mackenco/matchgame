@@ -30,7 +30,7 @@ var Helpers = (function() {
   }
 
   //sort by num correct then time
-  var leaderSort= function(board) {
+  var leaderSort = function(board) {
     return board.sort(function(x, y) {
       var n = y.correct - x.correct;
       if (n !== 0) {

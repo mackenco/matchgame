@@ -3,13 +3,13 @@ var Timer = (function() {
   var startTimer = function() {
     var timer = document.getElementById("timer");
     var duration = 60 * 2;
-    timerInterval = setInterval(function() {
+    Game.timerInterval = setInterval(function() {
       duration--;
-      timer.textContent = calcTimeText(duration);
+      timer.textContent = _calcTimeText(duration);
       
       if (duration <= 0) {
         gameOver = true;
-        clearInterval(timerInterval);
+        clearInterval(Game.timerInterval);
         if(confirm("Sorry, time's up! Play again?")) {
           Board.reset();
         }
@@ -17,7 +17,7 @@ var Timer = (function() {
     }, 1000);
   }
 
-  function calcTime(text) {
+  var calcTime = function(text) {
     var vals = text.split(":");
     var seconds = (parseInt(vals[0]) * 60) + parseInt(vals[1]);
     var elapsed = (60 * 2) - seconds;
@@ -28,7 +28,7 @@ var Timer = (function() {
     };
   }
 
-  function calcTimeText(duration) {
+  var _calcTimeText = function(duration) {
     var minutes = parseInt(duration / 60, 10);
     var seconds = parseInt(duration % 60, 10);
 
@@ -37,7 +37,8 @@ var Timer = (function() {
   }
 
   return {
-    startTimer: startTimer
+    startTimer: startTimer,
+    calcTime: calcTime
   };
 
 })();
