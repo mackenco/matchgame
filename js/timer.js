@@ -24,7 +24,7 @@ var Timer = (function() {
 
     return {
       sec: elapsed, 
-      text: calcTimeText(elapsed)
+      text: _calcTimeText(elapsed)
     };
   }
 
